@@ -1,6 +1,7 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
+
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Roboto', sans-serif;
   background-color: #121212;
   color: #e0e0e0;
   display: flex;
@@ -9,15 +10,7 @@ body {
   align-items: center;
   min-height: 100vh;
   padding: 0;
-}
-
-@keyframes rainbow {
-  0% { color: #ff0000; }
-  20% { color: #ffa500; }
-  40% { color: #ffff00; }
-  60% { color: #008000; }
-  80% { color: #4b0082; }
-  100% { color: #ee82ee; }
+  margin: 0;
 }
 
 .cards-container {
@@ -25,12 +18,6 @@ body {
   justify-content: center;
   gap: 2rem;
   padding: 2rem;
-  opacity: 0;
-  animation: fadeInUp 1s forwards;
-}
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(50px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 .pokemon-card {
@@ -42,18 +29,21 @@ body {
   text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
 }
+
 .pokemon-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.9);
 }
 
 .pokemon-image {
-  width: 100%;
+  width: 200px; /* Tamaño uniforme para las imágenes */
+  height: 200px;
+  border-radius: 14px;
+  object-fit: cover;
   border-bottom: 1px solid #333;
-  border-top-left-radius: 14px;
-  border-top-right-radius: 14px;
   transition: transform 0.3s;
 }
+
 .pokemon-image:hover {
   transform: scale(1.05);
 }
@@ -61,24 +51,27 @@ body {
 .pokemon-info {
   padding: 1rem;
 }
+
 .pokemon-name {
-  font-family: 'Uncial Antiqua', cursive;
   font-size: 1.8rem;
   margin-bottom: 0.5rem;
-  animation: rainbow 5s infinite;
+  text-transform: uppercase;
 }
+
 .types {
   display: flex;
   justify-content: center;
   gap: 0.5rem;
   margin-bottom: 0.5rem;
 }
+
 .pokemon-type {
   padding: 0.3rem 0.8rem;
   border-radius: 12px;
   font-weight: bold;
   font-size: 0.9rem;
 }
+
 .pokemon-type.plant { background-color: #4caf50; color: #121212; }
 .pokemon-type.poison { background-color: #8e24aa; color: #fff; }
 .pokemon-type.fire { background-color: #e53935; color: #fff; }
@@ -91,7 +84,19 @@ body {
 
 .site-footer {
   align-self: flex-end;
-  margin: 0 2rem 1rem 0;
+  margin: 2rem;
   font-size: 0.8rem;
   color: #555;
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .cards-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pokemon-card {
+    margin-bottom: 1rem;
+  }
 }
